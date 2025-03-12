@@ -1,0 +1,37 @@
+#users
+{
+    width: 80%;
+    margin: 100px auto;
+    border: 1px solid black;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+   
+}
+
+#users > .user
+{
+    box-shadow: 0 0 2px lightgray;
+    padding: 1rem;
+    min-width: 150px;
+    flex: 1 1 calc(200px - 20px);
+}
+
+.users > img
+{
+ width: 100%;
+}
+
+.user p 
+{
+    overflow: hidden;
+}
+
+.user:hover
+{
+    transition: all ease 0.9s;
+    box-shadow: 0 0 2px black, 0 0 4px black !important;
+    cursor: pointer;
+    transform: translateY(2px);
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>Lista utilizatorilor</h4>
+    <div id="users"></div>
+    <script>
+        const getUsers = async () => 
+        {
+            const response = await fetch(URL);
+            const data = await response.json();
+            const {users} = data;
+            return data;
+        }
+        
+        fetch('https://dummyjson.com/users/')
+            .then(res => res.json())
+            .then(data => 
+                {
+                    let {users} = data;
+                    const usersElement = document.querySelector("#users");
+                    users.map( user => 
+                        {
+                            usersElement.innerHTML += `<div class='user'>
+                                <img src='${user.image}' alt = '${user.image}' class ='avatar'>
+                                <div>
+                                    <p>Nume: ${user.firstName} ${user.lastname}</p>
+                                    <p>Email: ${user.Email} </p>
+                                    <p>Orasul: ${user.address.city} </p>
+                                </div>
+                                </div>`;
+                        }
+                    )
+                }
+            )
+    </script>
+</body>
+</html>
